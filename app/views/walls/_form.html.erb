@@ -1,0 +1,94 @@
+<%= form_for @wall, :html => { :class => "form-horizontal wall" } do |f| %>
+
+  <% if @wall.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@wall.errors.count, "error") %> prohibited this wall from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @wall.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+          <!-- List group -->
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="form-group" disabled>
+                <%= f.label :url, :class => 'control-label col-lg-2' %>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="url" placeholder="<%= "#{@wall.url}" %>" disabled>
+                  <%= f.hidden_field :url, :class => 'form-control'%>
+                </div>
+                <%=f.error_span(:url) %>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-group">
+                <%= f.label :delete_after, :class => 'control-label col-lg-2' %>
+                <div class="col-lg-10">
+                  <%= f.text_field :delete_after, :class => 'form-control' %>
+                </div>
+                <%=f.error_span(:delete_after) %>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-group">
+                <%= f.label :allow_pictures, :class => 'control-label col-lg-2' %>
+                <div class="form-check">
+                  <%= f.check_box :allow_pictures, :class => 'form-check-input', :data => { :size=>'small', 'on-color'=>'success', 'on-text'=>'YES', 'off-text'=>'NO' } %>
+                </div>
+                <%=f.error_span(:allow_pictures) %>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-group">
+                <%= f.label :allow_videos, :class => 'control-label col-lg-2' %>
+                <div class="form-check">
+                  <%= f.check_box :allow_videos, :class => 'form-check-input', :data => { :size=>'small', 'on-color'=>'success', 'on-text'=>'YES', 'off-text'=>'NO' } %>
+                </div>
+                <%=f.error_span(:allow_videos) %>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-group">
+                <%= f.label :allow_text, :class => 'control-label col-lg-2' %>
+                <div class="form-check">
+                  <%= f.check_box :allow_text, :class => 'form-check-input', :data => { :size=>'small', 'on-color'=>'success', 'on-text'=>'YES', 'off-text'=>'NO' } %>
+                </div>
+                <%=f.error_span(:allow_text) %>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-group">
+                <%= f.label :restrict_location, :class => 'control-label col-lg-2' %>
+                <div class="form-check">
+                  <%= f.check_box :restrict_location, :class => 'form-check-input', :data => { :size=>'small', 'on-color'=>'success', 'on-text'=>'YES', 'off-text'=>'NO' } %>
+                </div>
+                <%=f.error_span(:restrict_location) %>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="map">
+                <div class="col-lg-offset-2 col-lg-10">
+                  <%= f.gmap_coordinate_picker api_key: "AIzaSyBuzmw6vQhDjPKQK2k22b2NqqbI0DKiakg", :lat_column => 'latitude', :lng_column => 'longitude', :default_coordinates => [52.412377, 12.536679], autocomplete: { enable: true, class: 'form-control' }  %>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                  <%= f.submit nil, :class => 'btn btn-primary' %>
+                  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                            @cancel_wall, :class => 'btn btn-default' %>
+                </div>
+              </div>
+            </li>
+<% end %>

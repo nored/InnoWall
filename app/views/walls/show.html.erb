@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<%if cookies[:ownertoken] == @ownertoken %>
+<%= link_to 'Destroy Wall', @wall, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Edit Wall', edit_wall_path(@wall) %>
+<% end %>
+<% @pictures.each do |picture| %>
+  <div>
+    <h2><%= picture.title %></h2>
+    <br />
+    <p><%= link_to 'Delete', picture_path(picture), method: :delete %></p>
+    <img src="<%= picture.content_url %>" alt="<%= picture.title %>" style="width:500px;height:600px;">
+  </div>
+<% end %>
+
+<% @texts.each do |text| %>
+  <div>
+    <h2><%= text.title %></h2>
+    <br />
+    <p><%= link_to 'Delete', text_path(text), method: :delete %></p>
+    <p><%= text.content %></p>
+  </div>
+<% end %>
+
+<% @videos.each do |video| %>
+  <div>
+    <h2><%= video.title %></h2>
+    <br />
+    <p><%= link_to 'Delete', video_path(video), method: :delete %></p>
+    <iframe src='https://www.youtube.com/embed/<%= video.yt_id %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
+  </div>
+<% end %>
+
+<%= @foo.inspect %>

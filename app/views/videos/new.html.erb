@@ -1,0 +1,8 @@
+<p id="error"><%= flash[:error] %></p>
+<p id="notice"><%= flash[:notice] %></p>
+
+<%- model_class = Video -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

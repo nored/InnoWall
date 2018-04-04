@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  delete_after: 1
+  allow_pictures: false
+  allow_videos: false
+  allow_text: false
+  restrict_location: false
+
+two:
+  url: MyString
+  delete_after: 1
+  allow_pictures: false
+  allow_videos: false
+  allow_text: false
+  restrict_location: false

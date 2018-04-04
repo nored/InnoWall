@@ -1,0 +1,13 @@
+<div class="container">
+  
+  <h2>InnoWall</h2>
+ 
+<div class="col-lg-12">
+      <%= form_tag("/redirect") do %>
+        <%= label_tag(:url, "Bitte einen gültigen Slug eingeben.") %>
+        <%= text_field_tag :url %>
+        <%= submit_tag "Submit" %>
+      <% end %>
+  </div>
+  
+</div>

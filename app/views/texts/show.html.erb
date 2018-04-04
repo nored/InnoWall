@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @text.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @text.content %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @text.location %>
+</p>
+
+<p>
+  <strong>Wall:</strong>
+  <%= @text.wall %>
+</p>
+
+<%= link_to 'Edit', edit_text_path(@text) %> |
+<%= link_to 'Back', texts_path %>
