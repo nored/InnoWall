@@ -29,7 +29,8 @@ class WallsController < ApplicationController
       @videos = @wall.videos.all
       @texts = @wall.texts.all
       @ownertoken = @wall.ownertoken
-      @foo = @wall.delete_after
+      session[:url] = @wall.url
+      @i = 0
     end
   end
 

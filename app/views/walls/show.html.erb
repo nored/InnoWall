@@ -3,31 +3,33 @@
 <%= link_to 'Destroy Wall', @wall, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Edit Wall', edit_wall_path(@wall) %>
 <% end %>
-<% @pictures.each do |picture| %>
-  <div>
-    <h2><%= picture.title %></h2>
-    <br />
-    <p><%= link_to 'Delete', picture_path(picture), method: :delete %></p>
-    <img src="<%= picture.content_url %>" alt="<%= picture.title %>" style="width:500px;height:600px;">
-  </div>
-<% end %>
+<div class="polaroid-images">
+  <ul class="photostack">
+    <% @pictures.each do |picture| %>
+        <li id="pol" style="transform: rotate(<%= "#{rand(50)}deg" %>); z-index: <%= @i+=1 %>;">
+          <p id="del"><%= link_to '×', picture_path(picture), method: :delete %></p>
+          <img src="<%= picture.content_url %>" alt="<%= picture.title %>" style="width:500px;height:600px;">
+          <br />
+          <h2><%= picture.title %></h2>
+        </li>
+    <% end %>
 
-<% @texts.each do |text| %>
-  <div>
-    <h2><%= text.title %></h2>
-    <br />
-    <p><%= link_to 'Delete', text_path(text), method: :delete %></p>
-    <p><%= text.content %></p>
-  </div>
-<% end %>
+    <% @texts.each do |text| %>
+      <li id="pol" style="transform: rotate(<%= "#{rand(50)}deg" %>); z-index: <%= @i+=1 %>;">
+        <p id="del"><%= link_to '×', text_path(text), method: :delete %></p>
+        <p style="width:500px;height:600px;"><%= text.content %></p>
+        <br />
+        <h2><%= text.title %></h2>
+      </li>
+    <% end %>
 
-<% @videos.each do |video| %>
-  <div>
-    <h2><%= video.title %></h2>
-    <br />
-    <p><%= link_to 'Delete', video_path(video), method: :delete %></p>
-    <iframe src='https://www.youtube.com/embed/<%= video.yt_id %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
-  </div>
-<% end %>
-
-<%= @foo.inspect %>
+    <% @videos.each do |video| %>
+      <li id="pol" style="transform: rotate(<%= "#{rand(50)}deg" %>); z-index: <%= @i+=1 %>;">
+        <p id="del"><%= link_to '×', video_path(video), method: :delete %></p>
+        <iframe src='https://www.youtube.com/embed/<%= video.yt_id %>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen style="width:500px;height:600px;"></iframe>
+        <br />
+        <h2><%= video.title %></h2>
+      </li>
+    <% end %>
+  </ul>
+</div>

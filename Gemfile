@@ -13,7 +13,7 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -28,6 +28,12 @@ gem 'bootstrap-switch-rails', '~> 3.0.0'
 # Gmaps Datepicker
 gem "gmap_coordinates_picker"
 gem 'geocoder'
+
+# Unsplash Backgrounds
+gem 'unsplash'
+
+# Cronjobs
+gem 'whenever', require: false
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

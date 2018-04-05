@@ -1,13 +1,39 @@
-<div class="container">
-  
-  <h2>InnoWall</h2>
- 
-<div class="col-lg-12">
-      <%= form_tag("/redirect") do %>
-        <%= label_tag(:url, "Bitte einen gültigen Slug eingeben.") %>
-        <%= text_field_tag :url %>
-        <%= submit_tag "Submit" %>
-      <% end %>
+<style type="text/css">
+  body {
+    background:  linear-gradient(0deg, rgba(128,0,0,0.5), rgba(128,0,0,0.5)), url(<%= randomized_background_image %>) no-repeat center center fixed; 
+    background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  }
+  </style>
+
+
+<div class="jumbotron">
+  <div class="container" id="overview">
+    <section id="cover">
+    	<div id="cover-caption">
+        	<div id="container" class="container">
+            	<div class="row">
+                	<div class="col-sm-12 offset-sm-1 text-center">
+                		<h1>Welcome to InnoWall</h1>
+                		<h2>More innovative, more flexible and completely free media sharing</h2><br>
+                		<hr class="my-4">
+                		<p class="lead">
+  						Go ahead, share media with the whole team. In fact, invite everyone you know. InnoWall is 100% open source conferencing media sharing solution that you can use all day, every day, for free - with no account needed.</p>
+						
+	      					<%= form_tag("/redirect", {:class => 'form-inline justify-content-center'}) do %>
+	      						<div class="input-group col-xs-10">
+	        						<%= text_field_tag :url, '', :class => 'form-control', :id => 'search' %>
+	        					</div>
+		        					<%= submit_tag "Go!", :class => 'btn btn-primary my-2 my-sm-0' %>
+	      					<% end %>
+	  					
+	  				</div>
+            	</div>
+        	</div>
+    	</div>
+	</section>
   </div>
-  
 </div>
+

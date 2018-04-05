@@ -2,14 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-label{
-  width: 4em;
-  float: left;
-  text-align: right;
-  margin-right: 25em;
-  display: block
+body { 
+	background: #232526;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	color: white;
 }
 
-map{
-	margin: 25em;
+.photostack { position: relative; }
+.photostack > * {
+  position: absolute;
+  top: 70%;
+  left: 35%;
+  list-style-type: none;
+  color: black;
+}
+
+.polaroid-images{
+	margin-top: 7%;
+}
+
+#del{
+	text-align: right;
+	font-size: 25px;
+}
+
+#pol
+{
+    background: white;
+    
+    float: left;
+    margin: 0 15px 30px;
+    padding: 10px 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
+    box-shadow: 0 4px 6px rgba(0,0,0,.3);
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    transition: all .15s linear;
+
 }
